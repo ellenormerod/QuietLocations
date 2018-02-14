@@ -5,7 +5,7 @@ import {
   FlatList,
   StyleSheet
 } from 'react-native';
-import {List, ListItem} from 'react-native-elements'
+import {List, ListItem, SearchBar} from 'react-native-elements'
 import {fetchPlaces} from '../store'
 import {connect} from 'react-redux'
 
@@ -33,20 +33,43 @@ class Places extends Component {
     this.props.loadInitialData()
   }
   
+renderSeparator = () => {
+  return (
+    <View
+      style={{
+        height: 1,
+        width: '86%',
+        backgroundColor:'#CED0CE'
+      }}
+    />
+  )
+}
+
+renderHeader = () => {
+  return <SearchBar placeholder="Search here" lightTheme round />
+}
+
+_onPress = () => {
+  console.log('yo')
+}
+
   render(){
     const {places} = this.props
-    console.log('places', places)
     return (
-      <List>
+      <List containerStyle={{borderTopWidth: 0, borderBottomWidth: 0}}>
         <FlatList
           data={places}
           renderItem={({ item }) => (
             <ListItem
               title={item.name}
               subtitle={item.location}
+              containerStyle={{borderBottomWidth: 0}}
+              onPress={this._onPress}
               />
           )}
           keyExtractor={item => item.name}
+          ItemSeparatorComponent={this.renderSeparator}
+          ListHeaderComponent={this.renderHeader}
         />
       </List>
     )
