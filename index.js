@@ -1,4 +1,4 @@
-// import {AppRegistry} from 'react-native';
-import './js/App'
+import {AppRegistry} from 'react-native';
+import App from './App'
 
-// AppRegistry.registerComponent('QuietLocations', () => App);
+AppRegistry.registerComponent('QuietLocations', () => App);

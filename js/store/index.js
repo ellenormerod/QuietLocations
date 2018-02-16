@@ -1,15 +1,8 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux'
-import {createLogger} from 'redux-logger'
-import thunkMiddleware from 'redux-thunk'
-// import user from './user'
+import {combineReducers} from 'redux'
 import places from './places'
 
-const reducer = combineReducers({places})
-const middleware = applyMiddleware(
-  thunkMiddleware,
-  createLogger({collapsed: true})
-)
-const store = createStore(reducer, middleware)
+const AppReducer = combineReducers({
+  places
+})
 
-export default store
-export * from './places'
+export default AppReducer

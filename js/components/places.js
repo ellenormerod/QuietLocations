@@ -5,9 +5,11 @@ import {
   FlatList,
   StyleSheet
 } from 'react-native';
-import {List, ListItem, SearchBar} from 'react-native-elements'
-import {fetchPlaces} from '../store'
-import {connect} from 'react-redux'
+import {List, ListItem, SearchBar} from 'react-native-elements';
+import {fetchPlaces} from '../store';
+import {connect} from 'react-redux';
+import Place from './place';
+import {StackNavigator} from 'react-navigation';
 
 const styles = StyleSheet.create({
   container: {
@@ -49,8 +51,10 @@ renderHeader = () => {
   return <SearchBar placeholder="Search here" lightTheme round />
 }
 
-_onPress = () => {
-  console.log('yo')
+_onPress = (place) => {
+  {
+    this.props.navigation.naavigate('Place')
+  } 
 }
 
   render(){
@@ -64,7 +68,7 @@ _onPress = () => {
               title={item.name}
               subtitle={item.location}
               containerStyle={{borderBottomWidth: 0}}
-              onPress={this._onPress}
+              onPress={() => this._onPress(item)}
               />
           )}
           keyExtractor={item => item.name}
@@ -93,5 +97,6 @@ const mapDispatch = dispatch => {
 Places.navigationOptions = {
   title: 'Places'
 }
+
 
 export default connect(mapState, mapDispatch)(Places)
