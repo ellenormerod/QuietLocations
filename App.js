@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
-import Router from './js/components/Router';
-import {Provider} from 'react-redux';
-import configureStore from './store'
+import React from 'react';
+import AppNavigation from './js/navigation';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/es/integration/react';
+import configureStore from './store';
 
-const {store} = configureStore()
+const { store, persistor } = configureStore()
 
 const QuietLocations = () => {
-
-    return (
-      <Provider store={store}>
-        <Router />
-      </Provider>
-    );
+  console.log('hit here first?')
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <AppNavigation />
+      </PersistGate>
+    </Provider>
+  );
 
 }
 

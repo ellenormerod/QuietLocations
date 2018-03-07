@@ -6,7 +6,7 @@ import Router from '../components/Router'
 
 const Tabs = TabNavigator({
   Home: {screen: Router},
-  Place: {screen: props => <Places store={store} />}
+  Place: {screen: Places}
 })
 
 const navigator = StackNavigator({
@@ -17,5 +17,7 @@ const navigator = StackNavigator({
     screen: Tabs
   }
 })
+
+console.log('nav in stack', navigator)
 
 export default navigator

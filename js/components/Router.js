@@ -32,8 +32,5 @@ const Router = () => {
   )
 }
 
-Router.navigationOptions = {
-  title: 'Home'
-}
 
 export default Router
