@@ -18,7 +18,9 @@ const styles = StyleSheet.create({
 });
 
 class Place extends Component {
-
+  static navigationOptions = {
+    title: 'Place'
+  }
 
   render(){
     console.log('this.props', this.props)

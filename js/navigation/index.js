@@ -5,6 +5,7 @@ import {addNavigationHelpers, NavigationActions} from 'react-navigation';
 import NavigationStack from './navigationStack'
 
 class AppNavigation extends Component {
+  
   componentDidMount(){
     BackHandler.addEventListener('hardwareBackPress', this.onBackPress)
   }
@@ -15,17 +16,13 @@ class AppNavigation extends Component {
 
   onBackPress = () => {
     const { dispatch, navigationState } = this.props;
-    if (navigationState.stateForLoggedIn.index <= 1) {
-      BackHandler.exitApp();
-      return;
-    }
     dispatch(NavigationActions.back());
     return true;
   }
 
   render(){
-    const {navigationState, dispatch, isLoggedIn} = this.props;
-    const state = isLoggedIn ? navigationState.stateForLoggedIn : navigationState.stateForLoggedOut
+    console.log('in app nav')
+    const {navigationState, dispatch} = this.props;
     return (
       <NavigationStack navigation={addNavigationHelpers({dispatch, state})} />
     )
@@ -35,7 +32,6 @@ class AppNavigation extends Component {
 const mapState = state => {
   console.log('state', state)
   return {
-    isLoggedIn: state.login.isLoggedIn,
     navigationState: state.navigation
   }
 }

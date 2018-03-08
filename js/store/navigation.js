@@ -5,13 +5,12 @@ const LOGIN = 'LOGIN'
 const LOGOUT = 'LOGOUT'
 const INIT = 'INIT'
 
-console.log('nav', AppNavigator)
-
+console.log('app nav', AppNavigator)
 const tabsAction = NavigationActions.init()
 const tabsState = AppNavigator.router.getStateForAction(tabsAction)
 
 const ActionForLoggedOut = AppNavigator.router.getActionForPathAndParams('place');
-const ActionForLoggedIn = AppNavigator.router.getActionForPathAndParams('screen1');
+const ActionForLoggedIn = AppNavigator.router.getActionForPathAndParams('place');
 
 const stateForLoggedOut = AppNavigator.router.getStateForAction(ActionForLoggedOut);
 const stateForLoggedIn = AppNavigator.router.getStateForAction(ActionForLoggedIn);

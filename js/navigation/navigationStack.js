@@ -18,6 +18,5 @@ const navigator = StackNavigator({
   }
 })
 
-console.log('nav in stack', navigator)
 
 export default navigator

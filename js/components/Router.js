@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
 });
 
 const Router = () => {
+  
   return (
     <View style={styles.container}>
       <Image source={require('../Chicago-Skyline.jpg')} />

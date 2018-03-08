@@ -31,6 +31,10 @@ const styles = StyleSheet.create({
 });
 
 class Places extends Component {
+  static navigationOptions = {
+    title: 'Places'
+  }
+
   componentDidMount() {
     this.props.loadInitialData()
   }
@@ -51,6 +55,12 @@ class Places extends Component {
     return <SearchBar placeholder="Search here" lightTheme round />
   }
 
+  _onPress = () => {
+    console.log('yo')
+    {
+      this.props.navigation.navigate('Place')
+    }
+  }
 
   render() {
     const { places } = this.props
@@ -63,6 +73,7 @@ class Places extends Component {
               title={item.name}
               subtitle={item.location}
               containerStyle={{ borderBottomWidth: 0 }}
+              onPress={this._onPress}
             />
           )}
           keyExtractor={item => item.name}
@@ -88,5 +99,8 @@ const mapDispatch = dispatch => {
   }
 }
 
+// Places.navigationOptions = {
+//   title: 'Places'
+// }
 
 export default connect(mapState, mapDispatch)(Places)
