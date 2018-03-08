@@ -18,12 +18,8 @@ const styles = StyleSheet.create({
 });
 
 class Place extends Component {
-  static navigationOptions = {
-    title: 'Place'
-  }
 
   render(){
-    console.log('this.props', this.props)
     return (
       <View>
         <Text>
@@ -35,9 +31,7 @@ class Place extends Component {
 }
 
 const mapState = state => {
-  console.log('state', state)
   return {
-    places: state.places
   }
 }
 

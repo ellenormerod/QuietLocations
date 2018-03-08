@@ -3,7 +3,9 @@ import {
   StyleSheet,
   Image,
   View,
+  Button
 } from 'react-native';
+import { connect } from 'react-redux'
 
 const styles = StyleSheet.create({
   container: {
@@ -24,14 +26,21 @@ const styles = StyleSheet.create({
   }
 });
 
-const Router = () => {
-  
-  return (
-    <View style={styles.container}>
-      <Image source={require('../Chicago-Skyline.jpg')} />
-    </View>
-  )
+class Home extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Image source={require('../Chicago-Skyline.jpg')} />
+      </View>
+    )
+  }
 }
 
+const mapState = state => {
+  // console.log('state', state)
+  return {
 
-export default Router
+  }
+}
+
+export default connect(mapState)(Home)

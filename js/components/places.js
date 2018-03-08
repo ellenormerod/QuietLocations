@@ -10,6 +10,7 @@ import { fetchPlaces } from '../store';
 import { connect } from 'react-redux';
 import Place from './place';
 import { StackNavigator } from 'react-navigation';
+import {Actions} from 'react-native-router-flux';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,9 +32,6 @@ const styles = StyleSheet.create({
 });
 
 class Places extends Component {
-  static navigationOptions = {
-    title: 'Places'
-  }
 
   componentDidMount() {
     this.props.loadInitialData()
@@ -55,12 +53,6 @@ class Places extends Component {
     return <SearchBar placeholder="Search here" lightTheme round />
   }
 
-  _onPress = () => {
-    console.log('yo')
-    {
-      this.props.navigation.navigate('Place')
-    }
-  }
 
   render() {
     const { places } = this.props
@@ -73,7 +65,7 @@ class Places extends Component {
               title={item.name}
               subtitle={item.location}
               containerStyle={{ borderBottomWidth: 0 }}
-              onPress={this._onPress}
+              onPress={()=> Actions.place()}
             />
           )}
           keyExtractor={item => item.name}
@@ -86,6 +78,7 @@ class Places extends Component {
 }
 
 const mapState = state => {
+  console.log('state', state)
   return {
     places: state.places
   }
