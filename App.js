@@ -16,18 +16,20 @@ const TabIcon = ({title}) => {
 }
 
 const Scenes = Actions.create(<Scene key="root">
-  <Scene key="tabbar" tabs icon={TabIcon}>
+  <Scene key="tabbar" tabs icon={TabIcon} showLabel={false}>
     <Scene key="first" title="Home">
       <Scene
         key="home"
         component={Home}
         initial
+        hideNavBar={true}
       />
     </Scene>
     <Scene key="second" title="Places">
       <Scene
         key="places"
         component={Places}
+        hideNavBar={true}
       />
       <Scene
         key="place"

@@ -65,7 +65,7 @@ class Places extends Component {
               title={item.name}
               subtitle={item.location}
               containerStyle={{ borderBottomWidth: 0 }}
-              onPress={()=> Actions.place()}
+              onPress={() => Actions.place()}
             />
           )}
           keyExtractor={item => item.name}
@@ -78,7 +78,6 @@ class Places extends Component {
 }
 
 const mapState = state => {
-  console.log('state', state)
   return {
     places: state.places
   }
@@ -92,8 +91,5 @@ const mapDispatch = dispatch => {
   }
 }
 
-// Places.navigationOptions = {
-//   title: 'Places'
-// }
 
 export default connect(mapState, mapDispatch)(Places)
