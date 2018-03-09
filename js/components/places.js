@@ -1,35 +1,12 @@
 import React, { Component } from 'react';
 import {
-  Text,
   View,
-  FlatList,
-  StyleSheet
+  FlatList
 } from 'react-native';
 import { List, ListItem, SearchBar } from 'react-native-elements';
 import { fetchPlaces } from '../store';
 import { connect } from 'react-redux';
-import Place from './place';
-import { StackNavigator } from 'react-navigation';
 import {Actions} from 'react-native-router-flux';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 class Places extends Component {
 
@@ -65,7 +42,7 @@ class Places extends Component {
               title={item.name}
               subtitle={item.location}
               containerStyle={{ borderBottomWidth: 0 }}
-              onPress={() => Actions.place()}
+              onPress={() => Actions.place({item})}
             />
           )}
           keyExtractor={item => item.name}

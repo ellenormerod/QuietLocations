@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import {List, ListItem, SearchBar} from 'react-native-elements'
 import {connect} from 'react-redux'
+import {fetchReviews} from '../store'
 
 const styles = StyleSheet.create({
   container: {
@@ -18,12 +19,16 @@ const styles = StyleSheet.create({
 });
 
 class Place extends Component {
+  componentDidMount(){
+    this.props.loadReviews(this.props.item.id)
+  }
 
   render(){
+  const {item, reviews} = this.props
     return (
       <View>
         <Text>
-        Hey
+        {item.name}
         </Text>
       </View>
     )
@@ -32,11 +37,15 @@ class Place extends Component {
 
 const mapState = state => {
   return {
+    reviews: state.reviews
   }
 }
 
 const mapDispatch = dispatch => {
   return {
+    loadReviews(id){
+      dispatch(fetchReviews(id))
+    }
   }
 }
 
