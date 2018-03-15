@@ -2,34 +2,38 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
-  FlatList,
-  StyleSheet
 } from 'react-native';
-import {List, ListItem, SearchBar} from 'react-native-elements'
-import {connect} from 'react-redux'
-import {fetchReviews} from '../store'
+import { Card, Rating } from 'react-native-elements'
+import { connect } from 'react-redux'
+import { fetchReviews } from '../store'
+import Review from './review'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});
 
 class Place extends Component {
-  componentDidMount(){
+  componentDidMount() {
     this.props.loadReviews(this.props.item.id)
   }
 
-  render(){
-  const {item, reviews} = this.props
+  render() {
+    const { item, reviews } = this.props
     return (
       <View>
-        <Text>
-        {item.name}
-        </Text>
+        <Card title={item.name}>
+          <Text h3>
+            {item.location}
+          </Text>
+          <Rating
+            showRating
+            type="star"
+            fractions={1}
+            startingValue={+item.noise}
+            // readonly
+            imageSize={30}
+            // onFinishRating={review.noise}
+            style={{ paddingVertical: 10 }}
+          />
+        </Card>
+        {reviews.map(review => <Review key={review.id} review={review} />)}
       </View>
     )
   }
@@ -43,7 +47,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    loadReviews(id){
+    loadReviews(id) {
       dispatch(fetchReviews(id))
     }
   }
