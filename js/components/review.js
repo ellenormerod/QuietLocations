@@ -3,9 +3,10 @@ import {
   View,
   Text
 } from 'react-native';
-import { Card, Rating } from 'react-native-elements'
+import { Card, Rating} from 'react-native-elements'
 
 const Review = (props) => {
+  console.log('props', props)
   const { review } = props
   return (
     <View >

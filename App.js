@@ -8,11 +8,21 @@ import { Router, Scene, Actions } from 'react-native-router-flux';
 import Home from './js/components/home';
 import Places from './js/components/places';
 import Place from './js/components/place';
+import Review from './js/components/review'
 
-const TabIcon = ({title}) => {
+const TabIcon = ({ title }) => {
   return (
-    <Text style={{color: 'black'}}>{title}</Text>
+    <Text style={{ color: 'black' }}>{title}</Text>
   )
+}
+
+const styles = {
+  navBar: {
+
+  },
+  title: {
+
+  }
 }
 
 const Scenes = Actions.create(<Scene key="root">
@@ -34,6 +44,14 @@ const Scenes = Actions.create(<Scene key="root">
       <Scene
         key="place"
         component={Place}
+        navigationBarStyle={styles.navBar}
+        titleStyle={styles.title}
+      />
+      <Scene
+        key="review"
+        component={Review}
+        navigationBarStyle={styles.navBar}
+        titleStyle={styles.title}
       />
     </Scene>
   </Scene>
@@ -44,7 +62,7 @@ const ConnectedRouter = connect()(Router)
 const QuietLocations = () => {
   return (
     <Provider store={store}>
-      <ConnectedRouter scenes={Scenes}/>
+      <ConnectedRouter scenes={Scenes} />
     </Provider>
   );
 

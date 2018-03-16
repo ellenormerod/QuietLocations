@@ -2,16 +2,29 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
+  FlatList
 } from 'react-native';
-import { Card, Rating } from 'react-native-elements'
+import { ListItem, List, Card, Rating } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { fetchReviews } from '../store'
-import Review from './review'
+import { Actions } from 'react-native-router-flux';
 
 
 class Place extends Component {
   componentDidMount() {
     this.props.loadReviews(this.props.item.id)
+  }
+
+  renderSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: '86%',
+          backgroundColor: '#CED0CE'
+        }}
+      />
+    )
   }
 
   render() {
@@ -27,13 +40,27 @@ class Place extends Component {
             type="star"
             fractions={1}
             startingValue={+item.noise}
-            // readonly
+            readonly
             imageSize={30}
             // onFinishRating={review.noise}
             style={{ paddingVertical: 10 }}
           />
         </Card>
-        {reviews.map(review => <Review key={review.id} review={review} />)}
+        <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
+          <FlatList
+            data={reviews}
+            renderItem={({ review }) => (
+              <ListItem
+                title={reviews.title}
+                subtitle={reviews.comments}
+                constainerStyle={{ borderBottomWidth: 0 }}
+                onPress={() => Actions.review({ review })}
+              />
+            )}
+            keyExtractor={review => review.title}
+            ItemSeparatorComponent={this.renderSeparator}
+          />
+        </List>
       </View>
     )
   }
