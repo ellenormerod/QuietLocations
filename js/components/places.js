@@ -8,7 +8,7 @@ import { fetchPlaces } from '../store';
 import { connect } from 'react-redux';
 import {Actions} from 'react-native-router-flux';
 
-class Places extends Component {
+export class Places extends Component {
 
   componentDidMount() {
     this.props.loadInitialData()
