@@ -7,8 +7,9 @@ import renderer from 'react-test-renderer';
 
 describe('Home', () => {
   it('renders correctly', () => {
-    renderer.create(
+    const tree = renderer.create(
       <Home />
     );
+    expect(tree).toMatchSnapshot()
   });
 })
