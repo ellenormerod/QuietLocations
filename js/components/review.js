@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   View,
   Text
@@ -6,7 +6,6 @@ import {
 import { Card, Rating} from 'react-native-elements'
 
 const Review = (props) => {
-  console.log('props', props)
   const { review } = props
   return (
     <View >

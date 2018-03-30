@@ -10,7 +10,7 @@ import { fetchReviews } from '../store'
 import { Actions } from 'react-native-router-flux';
 
 
-class Place extends Component {
+export class Place extends Component {
   componentDidMount() {
     this.props.loadReviews(this.props.item.id)
   }
