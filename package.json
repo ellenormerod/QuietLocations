@@ -45,6 +45,7 @@
     "preset": "react-native",
     "transformIgnorePatterns": [
       "node_modules/(?!(react-native|react-native-elements|react-native-vector-icons|react-native-router-flux|react-navigation)/)"
-    ]
+    ],
+    "collectCoverage": true
   }
 }
