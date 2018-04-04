@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for js/components/place.js</title>
+    <title>Code coverage report for js/components/places.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">js/components</a> place.js
+      <a href="../../index.html">All files</a> / <a href="index.html">js/components</a> places.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">41.67% </span>
+        <span class="strong">46.15% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/12</span>
+        <span class='fraction'>6/13</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/8</span>
+        <span class='fraction'>3/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">41.67% </span>
+        <span class="strong">46.15% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/12</span>
+        <span class='fraction'>6/13</span>
       </div>
     </div>
   </div>
@@ -115,19 +115,7 @@
 70
 71
 72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+73</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,23 +145,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -204,6 +181,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,19 +189,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
 import {
-  Text,
   View,
   FlatList
 } from 'react-native';
-import { ListItem, List, Card, Rating } from 'react-native-elements'
-import { connect } from 'react-redux'
-import { fetchReviews } from '../store'
-import { Actions } from 'react-native-router-flux';
+import { List, ListItem, SearchBar } from 'react-native-elements';
+import { fetchPlaces } from '../store';
+import { connect } from 'react-redux';
+import {Actions} from 'react-native-router-flux';
 &nbsp;
+export class Places extends Component {
 &nbsp;
-export class Place extends Component {
   componentDidMount() {
-    this.props.loadReviews(this.props.item.id)
+    this.props.loadInitialData()
   }
 &nbsp;
   renderSeparator = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
@@ -238,60 +215,50 @@ export class Place extends Component {
     )
   }
 &nbsp;
+  renderHeader = () =&gt; {
+    return &lt;SearchBar placeholder="Search here" lightTheme round /&gt;
+  }
+&nbsp;
+&nbsp;
   render() {
-    const { item, reviews } = this.props
+    const { places } = this.props
     return (
-      &lt;View&gt;
-        &lt;Card title={item.name}&gt;
-          &lt;Text h3&gt;
-            {item.location}
-          &lt;/Text&gt;
-          &lt;Rating
-            showRating
-            type="star"
-            fractions={1}
-            startingValue={+item.noise}
-            readonly
-            imageSize={30}
-            // onFinishRating={review.noise}
-            style={{ paddingVertical: 10 }}
-          /&gt;
-        &lt;/Card&gt;
-        &lt;List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}&gt;
-          &lt;FlatList
-            data={reviews}
-            renderItem={<span class="fstat-no" title="function not covered" >({</span> review }) =&gt; (
-<span class="cstat-no" title="statement not covered" >              &lt;ListItem</span>
-                title={reviews.title}
-                subtitle={reviews.comments}
-                constainerStyle={{ borderBottomWidth: 0 }}
-                onPress={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >Actions.review({ review })}</span>
-              /&gt;
-            )}
-            keyExtractor={<span class="fstat-no" title="function not covered" >re</span>view =&gt; <span class="cstat-no" title="statement not covered" >review.title}</span>
-            ItemSeparatorComponent={this.renderSeparator}
-          /&gt;
-        &lt;/List&gt;
-      &lt;/View&gt;
+      &lt;List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}&gt;
+        &lt;FlatList
+          data={places}
+          renderItem={<span class="fstat-no" title="function not covered" >({</span> item }) =&gt; (
+<span class="cstat-no" title="statement not covered" >            &lt;ListItem</span>
+              title={item.name}
+              subtitle={item.location}
+              containerStyle={{ borderBottomWidth: 0 }}
+              onPress={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >Actions.place({item})}</span>
+            /&gt;
+          )}
+          keyExtractor={<span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >item.name}</span>
+          ItemSeparatorComponent={this.renderSeparator}
+          ListHeaderComponent={this.renderHeader}
+        /&gt;
+      &lt;/List&gt;
     )
   }
 }
 &nbsp;
 const mapState = <span class="fstat-no" title="function not covered" >st</span>ate =&gt; {
 <span class="cstat-no" title="statement not covered" >  return {</span>
-    reviews: state.reviews
+    places: state.places
   }
 }
 &nbsp;
 const mapDispatch = <span class="fstat-no" title="function not covered" >di</span>spatch =&gt; {
 <span class="cstat-no" title="statement not covered" >  return {</span>
-    loadReviews(id) {
-<span class="cstat-no" title="statement not covered" >      dispatch(fetchReviews(id))</span>
+    loadInitialData() {
+<span class="cstat-no" title="statement not covered" >      dispatch(fetchPlaces())</span>
     }
   }
 }
 &nbsp;
-export default connect(mapState, mapDispatch)(Place)
+&nbsp;
+export default connect(mapState, mapDispatch)(Places)
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

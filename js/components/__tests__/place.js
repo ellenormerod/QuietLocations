@@ -12,7 +12,7 @@ const fakeProps = {
 }
 
 
-it('renders Places using Snapshot', () => {
+it('renders Place using Snapshot', () => {
   expect(renderer.create(
     <Place {...fakeProps} />
   )).toMatchSnapshot()

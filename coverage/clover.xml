@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1522873302601" clover="3.2.0">
-  <project timestamp="1522873302601" name="All files">
-    <metrics statements="40" coveredstatements="25" conditionals="6" coveredconditionals="4" methods="22" coveredmethods="6" elements="68" coveredelements="35" complexity="0" loc="40" ncloc="40" packages="3" files="7" classes="7">
+<coverage generated="1522874033613" clover="3.2.0">
+  <project timestamp="1522874033613" name="All files">
+    <metrics statements="53" coveredstatements="31" conditionals="6" coveredconditionals="4" methods="31" coveredmethods="9" elements="90" coveredelements="44" complexity="0" loc="53" ncloc="53" packages="3" files="8" classes="8">
       <package name="js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="Chicago-Skyline.jpg" path="/Users/ellenormerod/Documents/Fullstack-Fellow/QLRN/QuietLocations/js/Chicago-Skyline.jpg">
@@ -10,7 +10,7 @@
         </file>
       </package>
       <package name="js.components">
-        <metrics statements="18" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="4"/>
+        <metrics statements="31" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="19" coveredmethods="7"/>
         <file name="home.js" path="/Users/ellenormerod/Documents/Fullstack-Fellow/QLRN/QuietLocations/js/components/home.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="9" count="1" type="stmt"/>
@@ -32,6 +32,22 @@
           <line num="76" count="0" type="stmt"/>
           <line num="78" count="0" type="stmt"/>
         </file>
+        <file name="places.js" path="/Users/ellenormerod/Documents/Fullstack-Fellow/QLRN/QuietLocations/js/components/places.js">
+          <metrics statements="13" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="3"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="41" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="48" count="0" type="stmt"/>
+          <line num="57" count="1" type="stmt"/>
+          <line num="58" count="0" type="stmt"/>
+          <line num="63" count="1" type="stmt"/>
+          <line num="64" count="0" type="stmt"/>
+          <line num="66" count="0" type="stmt"/>
+        </file>
         <file name="review.js" path="/Users/ellenormerod/Documents/Fullstack-Fellow/QLRN/QuietLocations/js/components/review.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="8" count="1" type="stmt"/>
@@ -43,33 +59,33 @@
         <metrics statements="21" coveredstatements="13" conditionals="6" coveredconditionals="4" methods="12" coveredmethods="2"/>
         <file name="index.js" path="/Users/ellenormerod/Documents/Fullstack-Fellow/QLRN/QuietLocations/js/store/index.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="9" count="1" type="stmt"/>
-          <line num="13" count="1" type="stmt"/>
-          <line num="18" count="1" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
         </file>
         <file name="places.js" path="/Users/ellenormerod/Documents/Fullstack-Fellow/QLRN/QuietLocations/js/store/places.js">
           <metrics statements="9" coveredstatements="5" conditionals="3" coveredconditionals="2" methods="6" coveredmethods="1"/>
-          <line num="4" count="1" type="stmt"/>
-          <line num="7" count="1" type="stmt"/>
-          <line num="10" count="1" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
           <line num="11" count="0" type="stmt"/>
           <line num="13" count="0" type="stmt"/>
           <line num="14" count="0" type="stmt"/>
-          <line num="20" count="3" type="cond" truecount="1" falsecount="1"/>
+          <line num="20" count="6" type="cond" truecount="1" falsecount="1"/>
           <line num="22" count="0" type="stmt"/>
-          <line num="24" count="3" type="stmt"/>
+          <line num="24" count="6" type="stmt"/>
         </file>
         <file name="reviews.js" path="/Users/ellenormerod/Documents/Fullstack-Fellow/QLRN/QuietLocations/js/store/reviews.js">
           <metrics statements="9" coveredstatements="5" conditionals="3" coveredconditionals="2" methods="6" coveredmethods="1"/>
-          <line num="4" count="1" type="stmt"/>
-          <line num="7" count="1" type="stmt"/>
-          <line num="10" count="1" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
           <line num="11" count="0" type="stmt"/>
           <line num="13" count="0" type="stmt"/>
           <line num="14" count="0" type="stmt"/>
-          <line num="20" count="3" type="cond" truecount="1" falsecount="1"/>
+          <line num="20" count="6" type="cond" truecount="1" falsecount="1"/>
           <line num="22" count="0" type="stmt"/>
-          <line num="24" count="3" type="stmt"/>
+          <line num="24" count="6" type="stmt"/>
         </file>
       </package>
     </metrics>
