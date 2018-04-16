@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //Action types
-const GET_REVIEWS = 'GET_R EVIEWS';
+const GET_REVIEWS = 'GET_REVIEWS';
 
 //Action creators
 const getReviews = reviews => ({type: GET_REVIEWS, reviews})

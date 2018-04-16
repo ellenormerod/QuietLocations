@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "NODE_ENV=test jest --no-cache"
+    "test": "NODE_ENV=test DATABASE_URL='postgres://localhost:5432/QuietLocations-test' jest --no-cache"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -18,10 +18,12 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.2.0",
     "save-dev": "^2.0.0"
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.15.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.0.1",
     "babel-jest": "22.2.2",
@@ -31,6 +33,7 @@
     "babel-preset-react-native": "4.0.0",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
+    "chai": "^3.5.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-15": "^1.0.5",
     "eslint": "^4.10.0",
