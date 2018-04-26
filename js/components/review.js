@@ -6,7 +6,7 @@ import {
 import { Card, Rating} from 'react-native-elements'
 
 const Review = (props) => {
-  const { review } = props
+  const { item } = props
   return (
     <View >
       <Card>
@@ -14,13 +14,13 @@ const Review = (props) => {
           showRating
           type="star"
           fractions={1}
-          startingValue={review.noise}
+          startingValue={item.noise}
           // readonly
           imageSize={20}
-          // onFinishRating={review.noise}
+          // onFinishRating={item.noise}
           style={{ paddingVertical: 10 }}
         />
-        <Text>{review.comments}</Text>
+        <Text>{item.comments}</Text>
       </Card>
     </View>
   )

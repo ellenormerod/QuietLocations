@@ -30,8 +30,8 @@ export class Place extends Component {
   render() {
     const { item, reviews } = this.props
     return (
-      <View>
-        <Card title={item.name}>
+       <View>
+       <Card title={item.name}>
           <Text h3>
             {item.location}
           </Text>
@@ -47,17 +47,17 @@ export class Place extends Component {
           />
         </Card>
         <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
-          <FlatList
-            data={reviews}
-            renderItem={({ review }) => (
-              <ListItem
-                title={reviews.title}
-                subtitle={reviews.comments}
-                constainerStyle={{ borderBottomWidth: 0 }}
-                onPress={() => Actions.review({ review })}
+         <FlatList
+        data={reviews}
+        renderItem={({ item }) => (
+          <ListItem
+                title={item.title}
+                subtitle={item.comments}
+                containerStyle={{ borderBottomWidth: 0 }}
+                onPress={() => Actions.review({ item })}
               />
             )}
-            keyExtractor={review => review.title}
+            keyExtractor={item => item.title}
             ItemSeparatorComponent={this.renderSeparator}
           />
         </List>
